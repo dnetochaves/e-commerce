@@ -7,11 +7,13 @@ class VariationInline(admin.TabularInline):
     extra = 1
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'short_description', 'price_marketing', 'price_marketing_promotion']
+    list_display = ['id', 'name', 'short_description', 'price_marketing', 'price_marketing_promotion']
     inlines = [
         VariationInline
     ]
+class VariationAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
 
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Variation)
+admin.site.register(Variation, VariationAdmin)
